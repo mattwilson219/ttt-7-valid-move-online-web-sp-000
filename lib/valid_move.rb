@@ -1,25 +1,18 @@
+# code your #valid_move? method here
 def valid_move?(board, index)
-  def position_taken?(array, ind)
-    if array[ind] == " " || array[ind] == "" || array[ind] == nil
-      return false
-    else
-      return true
-    end
+  new_index = index.to_i - 1
+  if new_index.between?(0, 8)
+      position_taken?(board, new_index)
+    return  true
+    else false
   end
+end
 
-  def on_board?(num)
-    if num.between?(0, 8) == true
-      return true
-    else
-      return false
-    end
-  end
-
-  if (position_taken?(board, index)) == false && (on_board?(index) == true)
+# re-define your #position_taken? method here, so that you can use it in the #valid_move? method above.
+def position_taken?(board, index)
+  if board[index] == " " || board[index] == "" || board[index] == nil
     return true
-  else
+else board[index] == "X" || board[index] ==  "O"
     return false
-  end
-
-
+ end
 end
